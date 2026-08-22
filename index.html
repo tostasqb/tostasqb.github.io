@@ -36,6 +36,19 @@
           <a href="https://github.com/tostasqb" target="_blank" rel="noreferrer">GitHub</a>
           <a href="https://www.linkedin.com/in/tostasqb/" target="_blank" rel="noreferrer">LinkedIn</a>
         </nav>
+        <aside class="now" aria-labelledby="now-title">
+          <div class="now__label">Creator of</div>
+          <h2 class="now__title" id="now-title">
+            <a href="https://jorisloop.com" target="_blank" rel="noreferrer">jorisloop.com</a>
+          </h2>
+          <p class="now__description">
+            An AI that delivers, not chats. You set a Routine — a standing instruction, a schedule, an output shape — and joris ships a purpose-built Delivery on time: a morning briefing, a house-hunt shortlist, a training session, a newsletter. No chat box, no model picker. The output is the product.
+          </p>
+          <ul class="now__meta">
+            <li>Rails 8.1</li>
+            <li>Ruby 4.0</li>
+          </ul>
+        </aside>
       </div>
     </header>
     <main>
@@ -229,7 +242,10 @@
       </section>
     </main>
     <footer class="footer">
-      <small>© 2025 Hugo Bento. Built with AI help 😉</small>
+      <small>© <span id="year">2026</span> Hugo Bento</small>
     </footer>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
   </body>
 </html>

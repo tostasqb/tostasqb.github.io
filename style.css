@@ -123,6 +123,53 @@ a:focus-visible::after {
   padding-bottom: 2px;
 }
 
+.now {
+  margin-top: var(--space-lg);
+  padding: var(--space-md);
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  max-width: 48ch;
+}
+
+.now__label {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-subtle);
+}
+
+.now__title {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  line-height: var(--line-height-tight);
+  margin: var(--space-xs) 0 0;
+  color: var(--color-ink);
+}
+
+.now__description {
+  margin: var(--space-sm) 0 0;
+  color: var(--color-ink-muted);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+}
+
+.now__meta {
+  list-style: none;
+  margin: var(--space-sm) 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs) var(--space-sm);
+  font-size: var(--font-size-xs);
+  color: var(--color-ink-subtle);
+}
+
+.now__meta li + li {
+  padding-left: var(--space-sm);
+  border-left: 1px solid var(--color-divider);
+}
+
 main {
   padding: 0 var(--space-md) var(--space-xl);
 }
