@@ -11,7 +11,8 @@
     <meta name="author" content="Hugo Bento" />
     <meta name="theme-color" content="#111111" />
     <link rel="canonical" href="https://hugobento.com/" />
-    <link rel="icon" type="image/jpeg" href="assets/logo.jpeg" />
+    <link rel="icon" type="image/jpeg" href="assets/icon.jpg" sizes="288x288" />
+    <link rel="apple-touch-icon" href="assets/icon.jpg" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Hugo Bento — Ruby on Rails Developer · UI/UX Designer · AI Practitioner" />
     <meta
@@ -22,19 +23,31 @@
     <meta property="og:image" content="https://hugobento.com/assets/logo.jpeg" />
     <meta property="og:locale" content="en_US" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="print.css" media="print" />
   </head>
   <body>
     <header class="hero">
       <div class="hero__spacer"></div>
       <div class="hero__intro">
+        <img src="assets/pic.jpeg" alt="" class="print-portrait print-only"
+             onerror="this.remove()" />
         <h1 class="hero__title">
           <img src="assets/logo.jpeg" alt="Hugo Bento logo" class="hero__logo" />
         </h1>
+        <p class="print-role print-only">Product Developer · Ruby on Rails Engineer · UI/UX Designer</p>
+        <ul class="print-contact print-only" aria-hidden="true">
+          <li>Pontevedra, Spain</li>
+          <li>mail@hugobento.com</li>
+          <li>hugobento.com</li>
+          <li>github.com/tostasqb</li>
+          <li>linkedin.com/in/tostasqb</li>
+        </ul>
         <p class="hero__tagline">I build dependable digital products. Working between Galicia and Lisbon, focused on clean interfaces, resilient architecture, and AI-enhanced workflows.</p>
         <nav class="hero__links" aria-label="Primary">
           <a href="mailto:mail@hugobento.com" target="_blank">Email</a>
           <a href="https://github.com/tostasqb" target="_blank" rel="noreferrer">GitHub</a>
           <a href="https://www.linkedin.com/in/tostasqb/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <button type="button" class="print-button" id="print-cv">Print CV</button>
         </nav>
         <aside class="now" aria-labelledby="now-title">
           <div class="now__label">Creator of</div>
@@ -124,17 +137,26 @@
               <p class="experience-item__description">
                 I do discovery and technical planning for AI-enabled initiatives: mapping requirements with stakeholders, defining data and API architecture, and identifying repetitive flows to automate (support, documentation, reporting). I design simple, maintainable foundations, Rails-based sites/CMS and knowledge bases, built for scale and clarity.
               </p>
+              <ul class="skill-tags" aria-label="Skills used in this role">
+                <li>Product Management</li>
+                <li>Product Design</li>
+                <li>Software Development</li>
+              </ul>
             </article>
 
             <article class="experience-item">
               <div class="experience-item__header">
                 <h3 class="experience-item__title">Senior Software Engineer</h3>
                 <div class="experience-item__company">ChartMogul</div>
-                <time class="experience-item__period">June 2024 – Present</time>
+                <time class="experience-item__period">June 2024 – August 2026</time>
               </div>
               <p class="experience-item__description">
                 Working with very talented people in the integrations team to build and maintain entry points for data. Focusing on delivering reliable, scalable solutions that enhance data connectivity.
               </p>
+              <ul class="skill-tags" aria-label="Skills used in this role">
+                <li>PostgreSQL</li>
+                <li>Ruby</li>
+              </ul>
             </article>
 
             <article class="experience-item">
@@ -146,6 +168,16 @@
               <p class="experience-item__description">
                 Helped consolidate a legacy survey platform into a unified stack, building phased rollout plans, documenting support playbooks, and reducing incident noise for thousands of end users. The migration from legacy platform to unified architecture had significant impact while maintaining empathetic support for users.
               </p>
+              <ul class="skill-tags" aria-label="Skills used in this role">
+                <li>Sidekiq</li>
+                <li>GitHub</li>
+                <li>MySQL</li>
+                <li>Ruby on Rails</li>
+                <li>MongoDB</li>
+                <li>Kubernetes</li>
+                <li>RSpec</li>
+                <li>Docker</li>
+              </ul>
             </article>
 
             <article class="experience-item">
@@ -157,6 +189,14 @@
               <p class="experience-item__description">
                 Focused on TDD practices and full-time coding. Gained insights into how multiple engineering teams organize and collaborate at scale.
               </p>
+              <ul class="skill-tags" aria-label="Skills used in this role">
+                <li>CSS</li>
+                <li>Ruby on Rails</li>
+                <li>HTML</li>
+                <li>Elm</li>
+                <li>RSpec</li>
+                <li>JavaScript</li>
+              </ul>
             </article>
 
             <article class="experience-item">
@@ -168,6 +208,30 @@
               <p class="experience-item__description">
                 Led cross-functional squads, identifying and removing blockers to maintain team velocity. Provided technical guidance, coached engineers, and kept teams aligned with client decision cycles. Focused on individual and team happiness while delivering measured results.
               </p>
+              <ul class="skill-tags" aria-label="Skills used in this role">
+                <li>Elasticsearch</li>
+                <li>CSS</li>
+                <li>Sidekiq</li>
+                <li>GitHub</li>
+                <li>Project Management</li>
+                <li>MySQL</li>
+                <li>npm</li>
+                <li>React.js</li>
+                <li>Kanban</li>
+                <li>Ruby on Rails</li>
+                <li>Jira</li>
+                <li>Cypress.io</li>
+                <li>Redis</li>
+                <li>HTML</li>
+                <li>PostgreSQL</li>
+                <li>Amazon Web Services (AWS)</li>
+                <li>MongoDB</li>
+                <li>Yarn</li>
+                <li>Web Development</li>
+                <li>JavaScript</li>
+                <li>Agile Methodologies</li>
+                <li>Heroku</li>
+              </ul>
             </article>
 
             <article class="experience-item">
@@ -179,6 +243,20 @@
               <p class="experience-item__description">
                 A turning point in my professional journey. Transitioned from Microsoft ecosystem to open source world through Ruby development. Gained experience in "scrum-ish" product development and management in a startup environment.
               </p>
+              <ul class="skill-tags" aria-label="Skills used in this role">
+                <li>Elasticsearch</li>
+                <li>CSS</li>
+                <li>Sidekiq</li>
+                <li>Project Management</li>
+                <li>Ruby on Rails</li>
+                <li>jQuery</li>
+                <li>Redis</li>
+                <li>HTML</li>
+                <li>PostgreSQL</li>
+                <li>Handlebars.js</li>
+                <li>Web Development</li>
+                <li>JavaScript</li>
+              </ul>
             </article>
 
             <article class="experience-item">
@@ -190,6 +268,19 @@
               <p class="experience-item__description">
                 Learned about corporate business and development processes. Delivered high-quality solutions that were massively tested and thoroughly planned. Worked with OutSystems and .NET, pushing for latest web trends.
               </p>
+              <ul class="skill-tags" aria-label="Skills used in this role">
+                <li>WCF Services</li>
+                <li>ASP.NET</li>
+                <li>Visual Studio</li>
+                <li>C#</li>
+                <li>HTML</li>
+                <li>SQL Server Integration Services (SSIS)</li>
+                <li>Microsoft SQL Server</li>
+                <li>TFS</li>
+                <li>JavaScript</li>
+                <li>.NET</li>
+                <li>Outsystems</li>
+              </ul>
             </article>
           </div>
         </div>
@@ -242,10 +333,20 @@
       </section>
     </main>
     <footer class="footer">
-      <small>© <span id="year">2026</span> Hugo Bento</small>
+      <small>© <span id="year">2026</span> Hugo Bento<span class="print-only--inline"> · hugobento.com · mail@hugobento.com</span></small>
     </footer>
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
+      document.getElementById("print-cv").addEventListener("click", () => window.print());
+
+      // Browsers name the saved PDF after the document title.
+      const pageTitle = document.title;
+      window.addEventListener("beforeprint", () => {
+        document.title = "Hugo Bento — CV";
+      });
+      window.addEventListener("afterprint", () => {
+        document.title = pageTitle;
+      });
     </script>
   </body>
 </html>

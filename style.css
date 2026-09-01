@@ -370,3 +370,60 @@ main {
     font-size: var(--font-size-xxl);
   }
 }
+
+/* Print-only content: revealed by print.css when the CV is printed. */
+.print-only,
+.print-only--inline {
+  display: none;
+}
+
+/* "Print CV" action, styled to sit inline with the hero links. */
+.print-button {
+  appearance: none;
+  margin: 0;
+  padding: 0 0 2px;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  position: relative;
+}
+
+.print-button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  opacity: 0;
+  transform: scaleX(0.6);
+  transform-origin: left;
+  transition: opacity 150ms ease, transform 150ms ease;
+}
+
+.print-button:hover::after,
+.print-button:focus-visible::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* Per-role skills, from the LinkedIn profile. */
+.skill-tags {
+  list-style: none;
+  margin: var(--space-sm) 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px var(--space-xs);
+  font-size: var(--font-size-xs);
+  color: var(--color-ink-subtle);
+}
+
+/* Separator is glued to the end of the preceding skill with a non-breaking
+   space, so a wrapped line never starts with a stray dot. */
+.skill-tags li:not(:last-child)::after {
+  content: "\00a0·";
+}

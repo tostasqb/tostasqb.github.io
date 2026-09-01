@@ -1,0 +1,365 @@
+/* ==========================================================================
+   print.css — the CV version of hugobento.com
+   Loaded with media="print" only, so the screen site is untouched.
+   Cmd/Ctrl + P → "Save as PDF" produces an A4 CV.
+   ========================================================================== */
+
+/* Vertical margin comes from @page so it repeats on every sheet; the
+   horizontal margin lives on <body> instead, so the CV still keeps its side
+   margins when the print dialog's own "Margins" control is set to None. */
+@page {
+  size: A4;
+  margin: 14mm 0;
+}
+
+/* Scale the whole rem-based design system down to print proportions. */
+html {
+  font-size: 9.5pt;
+}
+
+body {
+  padding: 0 15mm;
+  background: #fff;
+  color: var(--color-ink);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* Print-only overrides of the layout rhythm. */
+:root {
+  --layout-width: 100%;
+  --layout-gap: 0.95rem;
+  --space-xl: 1.6rem;
+  --space-lg: 1.1rem;
+}
+
+p,
+li {
+  orphans: 3;
+  widows: 3;
+}
+
+/* Links: flat ink, no hover machinery. */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a::after {
+  display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   Screen-only / print-only visibility
+   -------------------------------------------------------------------------- */
+
+.print-only {
+  display: block;
+}
+
+.print-only--inline {
+  display: inline;
+}
+
+.screen-only,
+.print-button,
+.hero__links,
+.hero__spacer,
+#contact {
+  display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   Header
+   -------------------------------------------------------------------------- */
+
+.hero {
+  display: block;
+  max-width: none;
+  margin: 0;
+  padding: 0 0 var(--space-md);
+  border-bottom: 1.5px solid var(--color-ink);
+}
+
+.hero__intro {
+  display: block;
+}
+
+.hero__title {
+  margin: 0 0 var(--space-sm);
+}
+
+.hero__logo {
+  max-height: 42px;
+  margin-left: -2px;
+}
+
+/* Headshot, print only. Float keeps the name, role and contact line wrapping
+   beside it without disturbing the rest of the header. */
+.print-portrait {
+  float: right;
+  width: 26mm;
+  height: 26mm;
+  margin: 0 0 var(--space-sm) var(--space-md);
+  object-fit: cover;
+  border-radius: 1.5mm;
+}
+
+.print-role {
+  margin: 0 0 var(--space-xs);
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--color-ink);
+}
+
+.print-contact {
+  list-style: none;
+  margin: 0 0 var(--space-sm);
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--space-xs);
+  font-size: var(--font-size-xs);
+  color: var(--color-ink-muted);
+}
+
+.print-contact li + li {
+  padding-left: var(--space-xs);
+  border-left: 1px solid var(--color-divider);
+}
+
+.hero__tagline {
+  margin: 0;
+  max-width: 82ch;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-base);
+  color: var(--color-ink-muted);
+}
+
+/* "Creator of" card → a quiet rule-marked note, so it prints cleanly even
+   when the browser's "background graphics" option is off. */
+.now {
+  max-width: none;
+  margin-top: var(--space-md);
+  padding: 0 0 0 var(--space-sm);
+  background: none;
+  border-left: 2px solid var(--color-ink);
+  border-radius: 0;
+  break-inside: avoid;
+}
+
+.now__label {
+  font-size: 0.7rem;
+}
+
+.now__title {
+  font-size: var(--font-size-md);
+}
+
+.now__description {
+  margin-top: 4px;
+  max-width: 82ch;
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-base);
+}
+
+.now__meta {
+  margin-top: var(--space-xs);
+  font-size: 0.7rem;
+}
+
+/* --------------------------------------------------------------------------
+   Sections
+   -------------------------------------------------------------------------- */
+
+main {
+  padding: 0;
+}
+
+/* Blink fragments grid containers badly across printed pages: a grid row that
+   does not fit is pushed to the next sheet whole, stranding a large empty gap.
+   Everything that has to flow across a page break is therefore laid out with
+   blocks and a single float, which fragment reliably. */
+.section {
+  display: block;
+  max-width: none;
+  margin: 0;
+  padding: var(--layout-gap) 0;
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.section::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.section__label {
+  float: left;
+  width: 30mm;
+  font-size: 0.72rem;
+  color: var(--color-ink);
+}
+
+.section__body {
+  margin-left: 34mm;
+  max-width: none;
+}
+
+.section__body p {
+  max-width: 82ch;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-base);
+}
+
+/* --------------------------------------------------------------------------
+   Skills
+   -------------------------------------------------------------------------- */
+
+.skills-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-md) var(--space-lg);
+  break-inside: avoid;
+}
+
+.skill-category {
+  break-inside: avoid;
+}
+
+.skill-category__title {
+  margin-bottom: var(--space-xs);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-ink-subtle);
+}
+
+.list {
+  display: block;
+  font-size: var(--font-size-sm);
+  color: var(--color-ink-muted);
+}
+
+.list li {
+  padding-left: 0;
+  margin-bottom: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Experience & education
+   -------------------------------------------------------------------------- */
+
+.experience-list,
+.education-list {
+  display: block;
+}
+
+.experience-item + .experience-item {
+  margin-top: 1rem;
+}
+
+.education-item + .education-item {
+  margin-top: var(--space-sm);
+}
+
+.experience-item,
+.education-item {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+/* Title / company / dates on one line, dates flush right. */
+.experience-item__header {
+  margin-bottom: 3px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  column-gap: var(--space-sm);
+}
+
+.experience-item__title {
+  margin: 0;
+  font-size: var(--font-size-md);
+}
+
+.experience-item__company {
+  grid-row: 2;
+  grid-column: 1;
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-ink-muted);
+}
+
+.experience-item__period {
+  grid-row: 1 / span 2;
+  grid-column: 2;
+  align-self: center;
+  font-size: var(--font-size-xs);
+  white-space: nowrap;
+  color: var(--color-ink-subtle);
+}
+
+.experience-item__description {
+  margin-top: var(--space-xs);
+  max-width: 82ch;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-base);
+}
+
+/* Inline-block rather than flex, for the same fragmentation reason as above. */
+.skill-tags {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.72rem;
+  line-height: 1.45;
+  color: var(--color-ink-subtle);
+}
+
+.skill-tags li {
+  display: inline;
+}
+
+.education-item {
+  padding-bottom: var(--space-sm);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  column-gap: var(--space-sm);
+}
+
+.education-item__degree {
+  grid-column: 1;
+  margin: 0 0 2px;
+  font-size: var(--font-size-sm);
+}
+
+.education-item__school {
+  grid-row: 2;
+  grid-column: 1;
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-ink-muted);
+}
+
+.education-item__period {
+  grid-row: 1 / span 2;
+  grid-column: 2;
+  align-self: center;
+  font-size: var(--font-size-xs);
+  white-space: nowrap;
+  color: var(--color-ink-subtle);
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+
+.footer {
+  max-width: none;
+  margin: 0;
+  padding: var(--space-sm) 0 0;
+  border-top: 1px solid var(--color-divider);
+  font-size: 0.72rem;
+  color: var(--color-ink-subtle);
+}
