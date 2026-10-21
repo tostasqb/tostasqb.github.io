@@ -8,7 +8,7 @@ This site showcases Hugo's experience in product development, AI integration, an
 ## Features
 - Responsive, accessible design
 - Modern CSS grid layout
-- Sections for Creator of, About, Experience, Technical Skills, and Education
+- Sections for About, Creator of, Experience, Technical Skills, and Education
 - Focus on AI, automation, and documentation best practices
 
 ## Deployment
