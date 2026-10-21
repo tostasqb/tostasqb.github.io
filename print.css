@@ -71,11 +71,13 @@ a::after {
    Header
    -------------------------------------------------------------------------- */
 
-/* Grid is safe here: the header always sits whole on the first sheet. */
+/* Grid is safe here: the header always sits whole on the first sheet.
+   Right padding keeps the text clear of the portrait pinned top right. */
 .hero {
+  position: relative;
   max-width: none;
   margin: 0;
-  padding: 0 0 var(--space-md);
+  padding: 0 calc(22mm + var(--space-md)) var(--space-md) 0;
   gap: var(--space-xs);
   border-bottom: 1.5px solid var(--color-ink);
 }
@@ -115,6 +117,9 @@ a::after {
 }
 
 .hero__portrait {
+  position: absolute;
+  top: 0;
+  right: 0;
   width: 22mm;
   height: 22mm;
 }
