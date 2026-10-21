@@ -396,10 +396,6 @@ main {
   color: var(--color-ink-subtle);
 }
 
-.footer__contact {
-  margin: 0;
-}
-
 .footer small {
   font-size: inherit;
 }
