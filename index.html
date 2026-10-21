@@ -27,44 +27,64 @@
   </head>
   <body>
     <header class="hero">
-      <div class="hero__spacer"></div>
+      <p class="hero__brand">
+        <img src="assets/logo.jpeg" alt="Hugo Bento" class="hero__logo" />
+      </p>
+      <p class="hero__role">Product Developer · Ruby on Rails Engineer · UI/UX Designer</p>
       <div class="hero__intro">
-        <img src="assets/pic.jpeg" alt="" class="print-portrait print-only"
+        <img src="assets/pic.jpeg" alt="Portrait of Hugo Bento" class="hero__portrait"
              onerror="this.remove()" />
-        <h1 class="hero__title">
-          <img src="assets/logo.jpeg" alt="Hugo Bento logo" class="hero__logo" />
-        </h1>
-        <p class="print-role print-only">Product Developer · Ruby on Rails Engineer · UI/UX Designer</p>
-        <ul class="print-contact print-only" aria-hidden="true">
-          <li>Pontevedra, Spain</li>
-          <li>mail@hugobento.com</li>
-          <li>hugobento.com</li>
-          <li>github.com/tostasqb</li>
-          <li>linkedin.com/in/tostasqb</li>
-        </ul>
-        <p class="hero__tagline">I build dependable digital products. Working between Galicia and Lisbon, focused on clean interfaces, resilient architecture, and AI-enhanced workflows.</p>
-        <nav class="hero__links" aria-label="Primary">
-          <a href="mailto:mail@hugobento.com" target="_blank">Email</a>
-          <a href="https://github.com/tostasqb" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="https://www.linkedin.com/in/tostasqb/" target="_blank" rel="noreferrer">LinkedIn</a>
-          <button type="button" class="print-button" id="print-cv">Print CV</button>
-        </nav>
-        <aside class="now" aria-labelledby="now-title">
-          <div class="now__label">Creator of</div>
-          <h2 class="now__title" id="now-title">
-            <a href="https://jorisloop.com" target="_blank" rel="noreferrer">jorisloop.com</a>
-          </h2>
-          <p class="now__description">
-            An AI that delivers, not chats. You set a Routine — a standing instruction, a schedule, an output shape — and joris ships a purpose-built Delivery on time: a morning briefing, a house-hunt shortlist, a training session, a newsletter. No chat box, no model picker. The output is the product.
-          </p>
-          <ul class="now__meta">
-            <li>Rails 8.1</li>
-            <li>Ruby 4.0</li>
+        <div class="hero__text">
+          <h1 class="hero__title">I build dependable digital products.</h1>
+          <p class="hero__tagline">Working between Galicia and Lisbon, focused on clean interfaces, resilient architecture, and AI-enhanced workflows.</p>
+          <ul class="print-contact print-only" aria-hidden="true">
+            <li>Pontevedra, Spain</li>
+            <li>mail@hugobento.com</li>
+            <li>hugobento.com</li>
+            <li>github.com/tostasqb</li>
+            <li>linkedin.com/in/tostasqb</li>
           </ul>
-        </aside>
+          <nav class="hero__links" aria-label="Primary">
+            <a href="mailto:mail@hugobento.com" target="_blank">Email</a>
+            <a href="https://github.com/tostasqb" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/tostasqb/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <button type="button" class="print-button" id="print-cv">Print CV</button>
+          </nav>
+        </div>
       </div>
     </header>
     <main>
+      <section id="projects" class="section">
+        <div class="section__label">Creator of</div>
+        <div class="section__body">
+          <div class="projects">
+            <article class="project">
+              <h2 class="project__title">
+                <a href="https://jorisloop.com" target="_blank" rel="noreferrer">jorisloop.com</a>
+              </h2>
+              <p class="project__description">
+                An AI that delivers, not chats. You set a Routine — a standing instruction, a schedule, an output shape — and joris ships a purpose-built Delivery on time: a morning briefing, a house-hunt shortlist, a training session, a newsletter. No chat box, no model picker. The output is the product.
+              </p>
+              <ul class="project__meta">
+                <li>Rails 8.1</li>
+                <li>Ruby 4.0</li>
+              </ul>
+            </article>
+            <article class="project">
+              <h2 class="project__title">
+                <a href="https://verniz.app" target="_blank" rel="noreferrer">verniz.app</a>
+              </h2>
+              <p class="project__description">
+                A simple booking calendar for independent beauty professionals. It shows the free slots in your day, learns each client's visit rhythm and flags who is due to rebook, gives every client a personal booking link to share on WhatsApp, and drafts the confirmation messages for you to send. A PWA: it works straight from the phone browser and is at its best installed to the home screen.
+              </p>
+              <ul class="project__meta">
+                <li>Rails 8.1</li>
+                <li>Ruby 4.0</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
       <section id="about" class="section">
         <div class="section__label">About</div>
         <div class="section__body">
@@ -77,48 +97,6 @@
           <p>
             Fluent in English, Spanish, and Portuguese.
           </p>
-        </div>
-      </section>
-      <section id="expertise" class="section">
-        <div class="section__label">Technical Skills</div>
-        <div class="section__body">
-          <div class="skills-grid">
-            <div class="skill-category">
-              <h3 class="skill-category__title">Core Stack</h3>
-              <ul class="list">
-                <li>Ruby on Rails</li>
-                <li>RSpec & TDD</li>
-                <li>Sidekiq</li>
-                <li>PostgreSQL</li>
-              </ul>
-            </div>
-            <div class="skill-category">
-              <h3 class="skill-category__title">Frontend & Design</h3>
-              <ul class="list">
-                <li>CSS</li>
-                <li>UI/UX Design</li>
-                <li>Responsive Systems</li>
-                <li>Interface Architecture</li>
-              </ul>
-            </div>
-            <div class="skill-category">
-              <h3 class="skill-category__title">AI & Productivity</h3>
-              <ul class="list">
-                <li>GitHub Copilot w/ different models</li>
-                <li>ChatGPT</li>
-                <li>Workflow Optimization</li>
-              </ul>
-            </div>
-            <div class="skill-category">
-              <h3 class="skill-category__title">Previous Experience</h3>
-              <ul class="list">
-                <li>.NET & MVC</li>
-                <li>OutSystems</li>
-                <li>jQuery</li>
-                <li>C#</li>
-              </ul>
-            </div>
-          </div>
         </div>
       </section>
       <section id="experience" class="section">
@@ -169,13 +147,11 @@
                 Helped consolidate a legacy survey platform into a unified stack, building phased rollout plans, documenting support playbooks, and reducing incident noise for thousands of end users. The migration from legacy platform to unified architecture had significant impact while maintaining empathetic support for users.
               </p>
               <ul class="skill-tags" aria-label="Skills used in this role">
-                <li>Sidekiq</li>
-                <li>GitHub</li>
-                <li>MySQL</li>
                 <li>Ruby on Rails</li>
+                <li>Sidekiq</li>
+                <li>MySQL</li>
                 <li>MongoDB</li>
                 <li>Kubernetes</li>
-                <li>RSpec</li>
                 <li>Docker</li>
               </ul>
             </article>
@@ -190,11 +166,9 @@
                 Focused on TDD practices and full-time coding. Gained insights into how multiple engineering teams organize and collaborate at scale.
               </p>
               <ul class="skill-tags" aria-label="Skills used in this role">
-                <li>CSS</li>
                 <li>Ruby on Rails</li>
-                <li>HTML</li>
-                <li>Elm</li>
                 <li>RSpec</li>
+                <li>Elm</li>
                 <li>JavaScript</li>
               </ul>
             </article>
@@ -209,27 +183,12 @@
                 Led cross-functional squads, identifying and removing blockers to maintain team velocity. Provided technical guidance, coached engineers, and kept teams aligned with client decision cycles. Focused on individual and team happiness while delivering measured results.
               </p>
               <ul class="skill-tags" aria-label="Skills used in this role">
-                <li>Elasticsearch</li>
-                <li>CSS</li>
-                <li>Sidekiq</li>
-                <li>GitHub</li>
-                <li>Project Management</li>
-                <li>MySQL</li>
-                <li>npm</li>
-                <li>React.js</li>
-                <li>Kanban</li>
                 <li>Ruby on Rails</li>
-                <li>Jira</li>
-                <li>Cypress.io</li>
-                <li>Redis</li>
-                <li>HTML</li>
+                <li>React.js</li>
                 <li>PostgreSQL</li>
+                <li>Elasticsearch</li>
+                <li>Redis</li>
                 <li>Amazon Web Services (AWS)</li>
-                <li>MongoDB</li>
-                <li>Yarn</li>
-                <li>Web Development</li>
-                <li>JavaScript</li>
-                <li>Agile Methodologies</li>
                 <li>Heroku</li>
               </ul>
             </article>
@@ -244,18 +203,11 @@
                 A turning point in my professional journey. Transitioned from Microsoft ecosystem to open source world through Ruby development. Gained experience in "scrum-ish" product development and management in a startup environment.
               </p>
               <ul class="skill-tags" aria-label="Skills used in this role">
-                <li>Elasticsearch</li>
-                <li>CSS</li>
-                <li>Sidekiq</li>
-                <li>Project Management</li>
                 <li>Ruby on Rails</li>
-                <li>jQuery</li>
-                <li>Redis</li>
-                <li>HTML</li>
                 <li>PostgreSQL</li>
-                <li>Handlebars.js</li>
-                <li>Web Development</li>
-                <li>JavaScript</li>
+                <li>Elasticsearch</li>
+                <li>Redis</li>
+                <li>Sidekiq</li>
               </ul>
             </article>
 
@@ -269,16 +221,10 @@
                 Learned about corporate business and development processes. Delivered high-quality solutions that were massively tested and thoroughly planned. Worked with OutSystems and .NET, pushing for latest web trends.
               </p>
               <ul class="skill-tags" aria-label="Skills used in this role">
-                <li>WCF Services</li>
-                <li>ASP.NET</li>
-                <li>Visual Studio</li>
-                <li>C#</li>
-                <li>HTML</li>
-                <li>SQL Server Integration Services (SSIS)</li>
-                <li>Microsoft SQL Server</li>
-                <li>TFS</li>
-                <li>JavaScript</li>
                 <li>.NET</li>
+                <li>ASP.NET</li>
+                <li>C#</li>
+                <li>Microsoft SQL Server</li>
                 <li>Outsystems</li>
               </ul>
             </article>
@@ -286,6 +232,48 @@
         </div>
       </section>
 
+      <section id="expertise" class="section">
+        <div class="section__label">Technical <br />Skills</div>
+        <div class="section__body">
+          <div class="skills-grid">
+            <div class="skill-category">
+              <h3 class="skill-category__title">Core Stack</h3>
+              <ul class="list">
+                <li>Ruby on Rails</li>
+                <li>RSpec & TDD</li>
+                <li>Sidekiq</li>
+                <li>PostgreSQL</li>
+              </ul>
+            </div>
+            <div class="skill-category">
+              <h3 class="skill-category__title">Frontend & Design</h3>
+              <ul class="list">
+                <li>CSS</li>
+                <li>UI/UX Design</li>
+                <li>Responsive Systems</li>
+                <li>Interface Architecture</li>
+              </ul>
+            </div>
+            <div class="skill-category">
+              <h3 class="skill-category__title">AI & Productivity</h3>
+              <ul class="list">
+                <li>GitHub Copilot w/ different models</li>
+                <li>ChatGPT</li>
+                <li>Workflow Optimization</li>
+              </ul>
+            </div>
+            <div class="skill-category">
+              <h3 class="skill-category__title">Previous Experience</h3>
+              <ul class="list">
+                <li>.NET & MVC</li>
+                <li>OutSystems</li>
+                <li>jQuery</li>
+                <li>C#</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
       <section id="education" class="section">
         <div class="section__label">Education</div>
         <div class="section__body">
@@ -308,32 +296,15 @@
           </div>
         </div>
       </section>
-      <section id="contact" class="section section--contact">
-        <div class="section__label">Contact</div>
-        <div class="section__body">
-          <dl class="contact">
-            <div class="contact__row">
-              <dt>Location</dt>
-              <dd>Pontevedra, Spain</dd>
-            </div>
-            <div class="contact__row">
-              <dt>Email</dt>
-              <dd><a href="mailto:mail@hugobento.com">mail@hugobento.com</a></dd>
-            </div>
-            <div class="contact__row">
-              <dt>GitHub</dt>
-              <dd><a href="https://github.com/tostasqb" rel="noreferrer">github.com/tostasqb</a></dd>
-            </div>
-            <div class="contact__row">
-              <dt>LinkedIn</dt>
-              <dd><a href="https://www.linkedin.com/in/tostasqb/" rel="noreferrer">linkedin.com/in/tostasqb</a></dd>
-            </div>
-          </dl>
-        </div>
-      </section>
     </main>
     <footer class="footer">
-      <small>© <span id="year">2026</span> Hugo Bento<span class="print-only--inline"> · hugobento.com · mail@hugobento.com</span></small>
+      <p class="footer__contact">
+        Pontevedra, Spain ·
+        <a href="mailto:mail@hugobento.com">mail@hugobento.com</a> ·
+        <a href="https://github.com/tostasqb" rel="noreferrer">github.com/tostasqb</a> ·
+        <a href="https://www.linkedin.com/in/tostasqb/" rel="noreferrer">linkedin.com/in/tostasqb</a>
+      </p>
+      <small>© <span id="year">2026</span> Hugo Bento</small>
     </footer>
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();

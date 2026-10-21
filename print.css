@@ -63,9 +63,7 @@ a::after {
 
 .screen-only,
 .print-button,
-.hero__links,
-.hero__spacer,
-#contact {
+.hero__links {
   display: none !important;
 }
 
@@ -73,20 +71,22 @@ a::after {
    Header
    -------------------------------------------------------------------------- */
 
+/* Grid is safe here: the header always sits whole on the first sheet. */
 .hero {
-  display: block;
   max-width: none;
   margin: 0;
   padding: 0 0 var(--space-md);
+  gap: var(--space-xs);
   border-bottom: 1.5px solid var(--color-ink);
 }
 
 .hero__intro {
-  display: block;
+  gap: var(--space-md);
+  margin-top: 2px;
 }
 
-.hero__title {
-  margin: 0 0 var(--space-sm);
+.hero__text {
+  gap: var(--space-xs);
 }
 
 .hero__logo {
@@ -94,28 +94,32 @@ a::after {
   margin-left: -2px;
 }
 
-/* Headshot, print only. Float keeps the name, role and contact line wrapping
-   beside it without disturbing the rest of the header. */
-.print-portrait {
-  float: right;
-  width: 26mm;
-  height: 26mm;
-  margin: 0 0 var(--space-sm) var(--space-md);
-  object-fit: cover;
-  border-radius: 1.5mm;
-}
-
-.print-role {
-  margin: 0 0 var(--space-xs);
+.hero__role {
   font-size: var(--font-size-md);
+  margin-top: -6px;
   font-weight: 600;
   letter-spacing: 0.01em;
   color: var(--color-ink);
 }
 
+.hero__title {
+  font-size: var(--font-size-xl);
+}
+
+.hero__tagline {
+  max-width: 82ch;
+  font-size: var(--font-size-sm);
+  color: var(--color-ink-muted);
+}
+
+.hero__portrait {
+  width: 22mm;
+  height: 22mm;
+}
+
 .print-contact {
   list-style: none;
-  margin: 0 0 var(--space-sm);
+  margin: 0;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
@@ -129,43 +133,34 @@ a::after {
   border-left: 1px solid var(--color-divider);
 }
 
-.hero__tagline {
-  margin: 0;
-  max-width: 82ch;
-  font-size: var(--font-size-sm);
-  line-height: var(--line-height-base);
-  color: var(--color-ink-muted);
-}
-
-/* "Creator of" card → a quiet rule-marked note, so it prints cleanly even
-   when the browser's "background graphics" option is off. */
-.now {
-  max-width: none;
-  margin-top: var(--space-md);
-  padding: 0 0 0 var(--space-sm);
-  background: none;
-  border-left: 2px solid var(--color-ink);
-  border-radius: 0;
+/* "Creator of" cards → outlined, so they print cleanly even when the
+   browser's "background graphics" option is off. */
+.projects {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-sm);
   break-inside: avoid;
 }
 
-.now__label {
-  font-size: 0.7rem;
+.project {
+  gap: 4px;
+  padding: var(--space-sm);
+  background: none;
+  border: 1px solid var(--color-divider);
+  border-radius: 1.5mm;
+  break-inside: avoid;
 }
 
-.now__title {
+.project__title {
   font-size: var(--font-size-md);
 }
 
-.now__description {
-  margin-top: 4px;
-  max-width: 82ch;
+.section__body .project__description {
   font-size: var(--font-size-xs);
   line-height: var(--line-height-base);
 }
 
-.now__meta {
-  margin-top: var(--space-xs);
+.project__meta {
+  padding-top: 2px;
   font-size: 0.7rem;
 }
 
@@ -186,7 +181,11 @@ main {
   max-width: none;
   margin: 0;
   padding: var(--layout-gap) 0;
-  border-bottom: 1px solid var(--color-divider);
+  border-top: 1px solid var(--color-divider);
+}
+
+.section:first-child {
+  border-top: none;
 }
 
 .section::after {
@@ -218,7 +217,7 @@ main {
    -------------------------------------------------------------------------- */
 
 .skills-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: var(--space-md) var(--space-lg);
   break-inside: avoid;
 }
@@ -228,11 +227,9 @@ main {
 }
 
 .skill-category__title {
-  margin-bottom: var(--space-xs);
-  font-size: 0.78rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--color-ink-subtle);
+  margin-bottom: 4px;
+  font-size: var(--font-size-sm);
+  white-space: nowrap;
 }
 
 .list {
@@ -260,7 +257,7 @@ main {
 }
 
 .education-item + .education-item {
-  margin-top: var(--space-sm);
+  margin-top: 4px;
 }
 
 .experience-item,
@@ -269,39 +266,19 @@ main {
   page-break-inside: avoid;
 }
 
-/* Title / company / dates on one line, dates flush right. */
-.experience-item__header {
-  margin-bottom: 3px;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: baseline;
-  column-gap: var(--space-sm);
-}
-
-.experience-item__title {
-  margin: 0;
+.experience-item__title,
+.experience-item__company {
   font-size: var(--font-size-md);
 }
 
-.experience-item__company {
-  grid-row: 2;
-  grid-column: 1;
-  margin: 0;
-  font-size: var(--font-size-sm);
-  color: var(--color-ink-muted);
-}
-
-.experience-item__period {
-  grid-row: 1 / span 2;
-  grid-column: 2;
-  align-self: center;
+.experience-item__period,
+.education-item__period {
   font-size: var(--font-size-xs);
   white-space: nowrap;
-  color: var(--color-ink-subtle);
 }
 
-.experience-item__description {
-  margin-top: var(--space-xs);
+.section__body .experience-item__description {
+  margin-top: 4px;
   max-width: 82ch;
   font-size: var(--font-size-sm);
   line-height: var(--line-height-base);
@@ -320,35 +297,9 @@ main {
   display: inline;
 }
 
-.education-item {
-  padding-bottom: var(--space-sm);
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: baseline;
-  column-gap: var(--space-sm);
-}
-
-.education-item__degree {
-  grid-column: 1;
-  margin: 0 0 2px;
-  font-size: var(--font-size-sm);
-}
-
+.education-item__degree,
 .education-item__school {
-  grid-row: 2;
-  grid-column: 1;
-  margin: 0;
   font-size: var(--font-size-sm);
-  color: var(--color-ink-muted);
-}
-
-.education-item__period {
-  grid-row: 1 / span 2;
-  grid-column: 2;
-  align-self: center;
-  font-size: var(--font-size-xs);
-  white-space: nowrap;
-  color: var(--color-ink-subtle);
 }
 
 /* --------------------------------------------------------------------------
@@ -359,6 +310,7 @@ main {
   max-width: none;
   margin: 0;
   padding: var(--space-sm) 0 0;
+  break-inside: avoid;
   border-top: 1px solid var(--color-divider);
   font-size: 0.72rem;
   color: var(--color-ink-subtle);

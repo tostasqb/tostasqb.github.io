@@ -3,31 +3,30 @@
   --color-surface: #f5f5f5;
   --color-ink: #111111;
   --color-ink-muted: #444444;
-  --color-ink-subtle: #6f6f6f;
+  --color-ink-subtle: #6a6a6a;
   --color-divider: #e6e6e6;
-  --color-accent: #aaaaaa;
+  --color-accent: #111111;
   --font-family: "Inter", "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-size-xs: 0.8125rem;
   --font-size-sm: 0.9375rem;
   --font-size-md: 1.0625rem;
   --font-size-lg: 1.25rem;
   --font-size-xl: 1.75rem;
-  --font-size-xxl: 2.5rem;
+  --font-size-display: clamp(2.25rem, 5vw, 3.5rem);
   --line-height-tight: 1.25;
   --line-height-base: 1.5;
-  --line-height-relaxed: 1.7;
+  --line-height-relaxed: 1.65;
   --space-xs: 0.5rem;
   --space-sm: 0.75rem;
   --space-md: 1.5rem;
   --space-lg: 2.5rem;
   --space-xl: 4rem;
-  --layout-width: 60rem;
-  --layout-gap: 6rem;
-  --grid-column-gap: 1.75rem;
-  --grid-row-gap: 2.5rem;
+  --layout-width: 57rem;
+  --layout-gap: 3rem;
+  --label-width: 7rem;
+  --label-gap: 1.5rem;
   --radius-sm: 4px;
-  --radius-md: 8px;
-  --shadow-subtle: 0 12px 28px rgba(17, 17, 17, 0.08);
+  --radius-md: 12px;
 }
 
 *,
@@ -42,10 +41,11 @@ html {
 
 body {
   margin: 0;
+  padding: 0 var(--space-md);
   background: var(--color-background);
   color: var(--color-ink);
   font-family: var(--font-family);
-  font-size: var(--font-size-md);
+  font-size: 1rem;
   line-height: var(--line-height-base);
   -webkit-font-smoothing: antialiased;
 }
@@ -83,112 +83,114 @@ a:focus-visible::after {
   transform: scaleX(1);
 }
 
+/* --------------------------------------------------------------------------
+   Header
+   -------------------------------------------------------------------------- */
+
 .hero {
   max-width: var(--layout-width);
   margin: 0 auto;
-  padding: var(--space-xl) var(--space-md) var(--space-lg);
+  padding: var(--space-xl) 0 3.5rem;
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+  justify-items: start;
 }
 
+.hero__brand {
+  margin: 0;
+}
 
 .hero__logo {
-  max-width: 100%;
-  max-height: 70px;
-  margin-left: -12px;
+  max-height: 60px;
+  margin-left: -10px;
+}
+
+/* Tucked up under the logo so the two read as one signature. */
+.hero__role {
+  margin: -0.875rem 0 0;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-ink-muted);
+}
+
+/* Portrait beside the headline; the text column drops under it on phones. */
+.hero__intro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1rem 1.75rem;
+  margin-top: 1rem;
+}
+
+.hero__portrait {
+  flex: none;
+  width: 112px;
+  height: 112px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.hero__text {
+  flex: 1 1 320px;
+  min-width: 0;
+  display: grid;
+  gap: 1rem;
+  justify-items: start;
 }
 
 .hero__title {
-  font-size: var(--font-size-xl);
-  line-height: var(--line-height-tight);
+  margin: 0;
+  font-size: var(--font-size-display);
   font-weight: 600;
-  margin: 0 0 var(--space-md);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
   color: var(--color-ink);
 }
 
 .hero__tagline {
-  margin: 0 0 var(--space-lg);
+  margin: 0;
+  max-width: 34em;
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-base);
   color: var(--color-ink-muted);
-  max-width: 48ch;
-  line-height: var(--line-height-relaxed);
 }
 
 .hero__links {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-sm);
+  gap: var(--space-xs) 1.25rem;
+  padding-top: 4px;
+  font-size: var(--font-size-sm);
 }
 
 .hero__links a {
   padding-bottom: 2px;
 }
 
-.now {
-  margin-top: var(--space-lg);
-  padding: var(--space-md);
-  background: var(--color-surface);
-  border-radius: var(--radius-md);
-  max-width: 48ch;
-}
-
-.now__label {
-  font-size: var(--font-size-xs);
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-ink-subtle);
-}
-
-.now__title {
-  font-size: var(--font-size-lg);
-  font-weight: 600;
-  line-height: var(--line-height-tight);
-  margin: var(--space-xs) 0 0;
-  color: var(--color-ink);
-}
-
-.now__description {
-  margin: var(--space-sm) 0 0;
-  color: var(--color-ink-muted);
-  font-size: var(--font-size-sm);
-  line-height: var(--line-height-relaxed);
-}
-
-.now__meta {
-  list-style: none;
-  margin: var(--space-sm) 0 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-xs) var(--space-sm);
-  font-size: var(--font-size-xs);
-  color: var(--color-ink-subtle);
-}
-
-.now__meta li + li {
-  padding-left: var(--space-sm);
-  border-left: 1px solid var(--color-divider);
-}
+/* --------------------------------------------------------------------------
+   Sections
+   -------------------------------------------------------------------------- */
 
 main {
-  padding: 0 var(--space-md) var(--space-xl);
+  padding-bottom: var(--space-lg);
 }
 
 .section {
   max-width: var(--layout-width);
   margin: 0 auto;
   padding: var(--layout-gap) 0;
-  border-bottom: 1px solid var(--color-divider);
+  border-top: 1px solid var(--color-divider);
   display: grid;
-  gap: var(--space-md);
+  gap: 1rem;
 }
 
-.section:last-of-type {
-  border-bottom: none;
+.section__label br {
+  display: none;
 }
 
 .section__label {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -196,12 +198,13 @@ main {
 }
 
 .section__body {
+  min-width: 0;
   color: var(--color-ink-muted);
 }
 
 .section__body p {
   margin: 0;
-  max-width: 60ch;
+  max-width: 62ch;
 }
 
 .section__body p + p,
@@ -214,160 +217,235 @@ main {
   margin: 0;
   padding: 0;
   display: grid;
-  gap: var(--space-xs);
-}
-
-.list li {
-  position: relative;
-  padding-left: var(--space-sm);
-}
-
-.contact {
-  margin: 0;
-  display: grid;
-  gap: var(--space-sm);
-}
-
-.contact__row {
-  display: grid;
-  gap: var(--space-xs);
-}
-
-.contact__row dt {
-  font-size: var(--font-size-xs);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-ink-subtle);
-}
-
-.contact__row dd {
-  margin: 0;
-  color: var(--color-ink-muted);
-}
-
-.skills-grid {
-  display: grid;
-  gap: var(--space-lg);
-}
-
-.skill-category__title {
+  gap: 2px;
   font-size: var(--font-size-sm);
+  line-height: 1.7;
+}
+
+/* --------------------------------------------------------------------------
+   Creator of
+   -------------------------------------------------------------------------- */
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: var(--space-md);
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+}
+
+.project__title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-size: 1.1875rem;
   font-weight: 600;
-  letter-spacing: 0.05em;
-  margin: 0 0 var(--space-sm);
+  line-height: var(--line-height-tight);
   color: var(--color-ink);
 }
 
-.experience-list,
-.education-list {
-  display: grid;
-  gap: var(--space-xl);
+.project__title::before {
+  content: "";
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent);
 }
 
+.section__body .project__description {
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+}
+
+.project__meta {
+  margin-top: auto;
+  padding-top: 6px;
+}
+
+/* --------------------------------------------------------------------------
+   Experience
+   -------------------------------------------------------------------------- */
+
+.experience-list {
+  display: grid;
+  gap: 2.25rem;
+}
+
+/* Title, company and dates stack on phones; see the wide-screen rules below. */
 .experience-item__header {
-  margin-bottom: var(--space-sm);
+  display: grid;
+  gap: 2px;
 }
 
 .experience-item__title {
-  font-size: var(--font-size-lg);
+  margin: 0;
+  font-size: var(--font-size-md);
   font-weight: 600;
   line-height: var(--line-height-tight);
-  margin: 0 0 var(--space-xs);
   color: var(--color-ink);
 }
 
 .experience-item__company {
   font-size: var(--font-size-md);
   color: var(--color-ink-muted);
-  margin-bottom: 4px;
 }
 
 .experience-item__period {
-  font-size: var(--font-size-sm);
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
   color: var(--color-ink-subtle);
-  display: block;
 }
 
-.experience-item__description {
-  margin: var(--space-sm) 0 0;
-  color: var(--color-ink-muted);
+.section__body .experience-item__description {
+  margin: var(--space-xs) 0 0;
+  max-width: none;
   line-height: var(--line-height-relaxed);
 }
 
-.education-item {
-  padding-bottom: var(--space-md);
-  border-bottom: 1px solid var(--color-divider);
+/* Per-role skills, from the LinkedIn profile. */
+.skill-tags,
+.project__meta {
+  list-style: none;
+  margin: var(--space-xs) 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px var(--space-xs);
+  font-size: var(--font-size-xs);
+  color: var(--color-ink-subtle);
 }
 
-.education-item:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
+/* Separator is glued to the end of the preceding skill with a non-breaking
+   space, so a wrapped line never starts with a stray dot. */
+.skill-tags li:not(:last-child)::after,
+.project__meta li:not(:last-child)::after {
+  content: "\00a0·";
+}
+
+/* --------------------------------------------------------------------------
+   Skills
+   -------------------------------------------------------------------------- */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--space-md);
+}
+
+.skill-category__title {
+  margin: 0 0 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+/* --------------------------------------------------------------------------
+   Education
+   -------------------------------------------------------------------------- */
+
+.education-list {
+  display: grid;
+  gap: 14px;
+}
+
+.education-item {
+  display: grid;
+  gap: 2px;
 }
 
 .education-item__degree {
-  font-size: var(--font-size-md);
-  font-weight: 600;
-  margin: 0 0 var(--space-xs);
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
   color: var(--color-ink);
 }
 
 .education-item__school {
-  font-size: var(--font-size-md);
   color: var(--color-ink-muted);
-  margin-bottom: 4px;
 }
 
 .education-item__period {
-  font-size: var(--font-size-sm);
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
   color: var(--color-ink-subtle);
-  display: block;
 }
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
 
 .footer {
   max-width: var(--layout-width);
   margin: 0 auto;
-  padding: var(--space-lg) var(--space-md) var(--space-xl);
+  padding: 2rem 0 var(--space-xl);
+  border-top: 1px solid var(--color-divider);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-xs) var(--space-md);
+  font-size: 0.875rem;
   color: var(--color-ink-subtle);
-  font-size: var(--font-size-xs);
+}
+
+.footer__contact {
+  margin: 0;
+}
+
+.footer small {
+  font-size: inherit;
 }
 
 @media (min-width: 48rem) {
-  .hero {
-    grid-template-columns: 180px minmax(0, 1fr);
-    align-items: start;
-  }
-
-  .hero__title {
-    font-size: var(--font-size-xxl);
-  }
-
-  .skills-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--grid-column-gap) var(--grid-row-gap);
-  }
-
   .section {
-    grid-template-columns: 180px minmax(0, 1fr);
+    grid-template-columns: var(--label-width) minmax(0, 1fr);
+    column-gap: var(--label-gap);
     align-items: start;
   }
 
-  .section__body {
-    max-width: 52ch;
+  .section__label br {
+    display: inline;
+  }
+}
+
+/* Title · company on one line with the dates pushed right. */
+@media print, (min-width: 48rem) {
+  .experience-item__header,
+  .education-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 2px 0;
   }
 
-  .contact {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: var(--grid-column-gap);
+  .experience-item__company,
+  .education-item__school {
+    margin-left: 0.3em;
+  }
+
+  .experience-item__company::before,
+  .education-item__school::before {
+    content: "· ";
+  }
+
+  .experience-item__period,
+  .education-item__period {
+    margin-left: auto;
+    padding-left: 1rem;
   }
 }
 
 @media (min-width: 64rem) {
   .hero {
-    padding-top: calc(var(--space-xl) * 1.5);
-  }
-
-  .hero__title {
-    font-size: var(--font-size-xxl);
+    padding-top: 5.5rem;
   }
 }
 
@@ -408,22 +486,4 @@ main {
 .print-button:focus-visible::after {
   opacity: 1;
   transform: scaleX(1);
-}
-
-/* Per-role skills, from the LinkedIn profile. */
-.skill-tags {
-  list-style: none;
-  margin: var(--space-sm) 0 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2px var(--space-xs);
-  font-size: var(--font-size-xs);
-  color: var(--color-ink-subtle);
-}
-
-/* Separator is glued to the end of the preceding skill with a non-breaking
-   space, so a wrapped line never starts with a stray dot. */
-.skill-tags li:not(:last-child)::after {
-  content: "\00a0·";
 }
